@@ -45,7 +45,6 @@
     "react-spinners": "^0.15.0",
     "react-svg": "^16.3.0",
     "recharts": "^2.15.1",
-    "rollup-plugin-visualizer": "^5.14.0",
     "vite-plugin-pwa": "^0.21.1",
     "vite-plugin-svgr": "^4.3.0",
     "vite-tsconfig-paths": "^5.1.4",
@@ -54,6 +53,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
+    "@types/chrome": "^0.0.310",
     "@types/node": "^22.13.10",
     "@types/nprogress": "^0.2.3",
     "@types/react": "^19.0.10",
