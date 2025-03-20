@@ -1,7 +1,7 @@
-import i18n from "i18next";
-import LanguageDetector from "i18next-browser-languagedetector";
-import Backend from "i18next-xhr-backend";
-import { initReactI18next } from "react-i18next";
+import i18n from 'i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
+import Backend from 'i18next-xhr-backend';
+import { initReactI18next } from 'react-i18next';
 
 i18n
   .use(Backend)
@@ -11,9 +11,9 @@ i18n
     backend: {
       loadPath: `/locales/{{lng}}/translation.json`,
     },
-    fallbackLng: "en",
+    fallbackLng: 'en',
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
-    supportedLngs: ["en", "fr"],
+    supportedLngs: ['en', 'fr'],
   });

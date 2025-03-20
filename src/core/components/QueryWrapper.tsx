@@ -1,10 +1,10 @@
-import React from "react";
-import { ErrorBoundary } from "react-error-boundary";
-import { useTranslation } from "react-i18next";
-import { useQueryErrorResetBoundary } from "react-query";
-import Loader from "./Loader";
-import Result from "./Result";
-import { Button } from "@mui/material";
+import React from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+import { useTranslation } from 'react-i18next';
+import { useQueryErrorResetBoundary } from 'react-query';
+import Loader from './Loader';
+import Result from './Result';
+import { Button } from '@mui/material';
 
 type QueryWrapperProps = {
   children: React.ReactNode;
@@ -20,13 +20,13 @@ const QueryWrapper = ({ children }: QueryWrapperProps) => {
       fallbackRender={({ resetErrorBoundary }) => (
         <Result
           extra={
-            <Button onClick={() => resetErrorBoundary()} variant="contained">
-              {t("common.retry")}
+            <Button onClick={() => resetErrorBoundary()} variant='contained'>
+              {t('common.retry')}
             </Button>
           }
-          status="error"
-          subTitle={t("common.errors.unexpected.subTitle")}
-          title={t("common.errors.unexpected.title")}
+          status='error'
+          subTitle={t('common.errors.unexpected.subTitle')}
+          title={t('common.errors.unexpected.title')}
         />
       )}
     >

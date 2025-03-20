@@ -1,7 +1,7 @@
 {
   "name": "template-mui-3",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "engines": {
     "node": ">=20.0.0"
@@ -10,7 +10,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "husky install",
+    "format:all": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -30,11 +32,14 @@
     "dayjs": "^1.11.13",
     "formik": "^2.4.6",
     "fullcalendar": "^6.1.15",
+    "husky": "^9.1.7",
     "i18next": "^24.2.3",
     "i18next-browser-languagedetector": "^8.0.4",
     "i18next-xhr-backend": "^3.2.2",
+    "lint-staged": "^15.5.0",
     "nprogress": "^0.2.0",
     "path": "^0.12.7",
+    "prettier": "^3.5.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-error-boundary": "^5.0.0",
@@ -67,8 +72,36 @@
     "typescript-eslint": "^8.24.1",
     "vite": "^6.2.0"
   },
+  "lint-staged": {
+    "*.{ts,tsx,json,scss,md,html}": [
+      "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+      "git add ."
+    ]
+  },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0 || ^19.0.0",
     "react-dom": "^17.0.0 || ^18.0.0 || ^19.0.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "env": {
+      "browser": true,
+      "node": true
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

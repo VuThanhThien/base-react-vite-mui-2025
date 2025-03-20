@@ -1,35 +1,34 @@
-
-import { Card, CardContent, CardHeader, useTheme } from "@mui/material";
-import { useTranslation } from "react-i18next";
-import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis } from "recharts";
+import { Card, CardContent, CardHeader, useTheme } from '@mui/material';
+import { useTranslation } from 'react-i18next';
+import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis } from 'recharts';
 
 const data = [
   {
-    name: "Jan",
+    name: 'Jan',
     pv: 2400,
   },
   {
-    name: "Feb",
+    name: 'Feb',
     pv: 1398,
   },
   {
-    name: "Mar",
+    name: 'Mar',
     pv: 9800,
   },
   {
-    name: "Apr",
+    name: 'Apr',
     pv: 3908,
   },
   {
-    name: "May",
+    name: 'May',
     pv: 4800,
   },
   {
-    name: "Jun",
+    name: 'Jun',
     pv: 3800,
   },
   {
-    name: "Jul",
+    name: 'Jul',
     pv: 4300,
   },
 ];
@@ -40,9 +39,9 @@ const ActivityWidget = () => {
 
   return (
     <Card>
-      <CardHeader title={t("dashboard.activity.title")} />
+      <CardHeader title={t('dashboard.activity.title')} />
       <CardContent>
-        <ResponsiveContainer width="99%" height={244}>
+        <ResponsiveContainer width='99%' height={244}>
           <LineChart
             width={500}
             height={300}
@@ -58,7 +57,7 @@ const ActivityWidget = () => {
               axisLine={false}
               tick={{ fill: theme.palette.text.secondary, fontSize: 12 }}
               tickLine={false}
-              dataKey="name"
+              dataKey='name'
             />
             <Tooltip
               contentStyle={{
@@ -69,9 +68,9 @@ const ActivityWidget = () => {
               }}
             />
             <Line
-              name="Value"
-              type="monotone"
-              dataKey="pv"
+              name='Value'
+              type='monotone'
+              dataKey='pv'
               stroke={theme.palette.primary.main}
               strokeWidth={6}
               activeDot={{ r: 8 }}

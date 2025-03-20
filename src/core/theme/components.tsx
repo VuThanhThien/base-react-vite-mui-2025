@@ -1,9 +1,5 @@
-import { Theme } from "@mui/material";
-import {
-  CheckCircle,
-  RadioButtonUnchecked,
-  RemoveCircle,
-} from "@mui/icons-material";
+import { Theme } from '@mui/material';
+import { CheckCircle, RadioButtonUnchecked, RemoveCircle } from '@mui/icons-material';
 
 export const createThemeComponents = (theme: Theme) => ({
   MuiCssBaseline: {
@@ -28,11 +24,11 @@ export const createThemeComponents = (theme: Theme) => ({
       root: {
         borderRadius: theme.shape.borderRadius,
         marginBottom: theme.spacing(3),
-        "&.Mui-expanded:last-of-type": {
+        '&.Mui-expanded:last-of-type': {
           marginBottom: theme.spacing(3),
         },
-        "&:before": {
-          content: "none",
+        '&:before': {
+          content: 'none',
         },
       },
     },
@@ -60,7 +56,7 @@ export const createThemeComponents = (theme: Theme) => ({
     },
     styleOverrides: {
       root: {
-        "&.MuiAppBar-colorDefault": {
+        '&.MuiAppBar-colorDefault': {
           backgroundColor: theme.palette.background.default,
           color: theme.palette.text.primary,
         },
@@ -70,7 +66,7 @@ export const createThemeComponents = (theme: Theme) => ({
   MuiAvatar: {
     styleOverrides: {
       root: {
-        color: "inherit",
+        color: 'inherit',
         backgroundColor: theme.palette.background.default,
       },
     },
@@ -81,14 +77,14 @@ export const createThemeComponents = (theme: Theme) => ({
     },
     styleOverrides: {
       root: {
-        padding: "16px 24px",
-        textTransform: "none" as any,
+        padding: '16px 24px',
+        textTransform: 'none' as any,
       },
       label: {
         fontWeight: theme.typography.fontWeightMedium,
       },
       text: {
-        padding: "16px 16px",
+        padding: '16px 16px',
       },
     },
   },
@@ -100,8 +96,8 @@ export const createThemeComponents = (theme: Theme) => ({
   MuiCardActions: {
     styleOverrides: {
       root: {
-        justifyContent: "flex-end",
-        padding: "0 24px 24px 24px",
+        justifyContent: 'flex-end',
+        padding: '0 24px 24px 24px',
       },
     },
   },
@@ -115,7 +111,7 @@ export const createThemeComponents = (theme: Theme) => ({
   MuiCardHeader: {
     styleOverrides: {
       root: {
-        padding: "24px 24px 0 24px",
+        padding: '24px 24px 0 24px',
       },
     },
   },
@@ -144,8 +140,8 @@ export const createThemeComponents = (theme: Theme) => ({
     styleOverrides: {
       root: {
         padding: 24,
-        "& .MuiTypography-root": {
-          fontSize: "1.25rem",
+        '& .MuiTypography-root': {
+          fontSize: '1.25rem',
         },
       },
     },
@@ -153,17 +149,17 @@ export const createThemeComponents = (theme: Theme) => ({
   MuiDrawer: {
     styleOverrides: {
       paper: {
-        border: "none; !important",
+        border: 'none; !important',
       },
     },
   },
   MuiFab: {
     styleOverrides: {
       root: {
-        boxShadow: "none",
-        lineHeight: "inherit",
-        textTransform: "none" as any,
-        "&.MuiFab-secondary": {
+        boxShadow: 'none',
+        lineHeight: 'inherit',
+        textTransform: 'none' as any,
+        '&.MuiFab-secondary': {
           color: theme.palette.text.primary,
         },
       },
@@ -190,7 +186,7 @@ export const createThemeComponents = (theme: Theme) => ({
     styleOverrides: {
       tabs: {
         backgroundColor: theme.palette.background.default,
-        "& MuiTabs-indicator": {
+        '& MuiTabs-indicator': {
           height: 0,
         },
       },
@@ -215,7 +211,7 @@ export const createThemeComponents = (theme: Theme) => ({
         borderRadius: 16,
         paddingTop: 12,
         paddingBottom: 12,
-        "&.Mui-selected": {
+        '&.Mui-selected': {
           backgroundColor: theme.palette.background.default,
           color: theme.palette.text.primary,
         },
@@ -228,7 +224,7 @@ export const createThemeComponents = (theme: Theme) => ({
         borderRadius: 16,
         paddingTop: 12,
         paddingBottom: 12,
-        "&.Mui-selected": {
+        '&.Mui-selected': {
           backgroundColor: theme.palette.background.default,
           color: theme.palette.text.primary,
         },
@@ -261,7 +257,7 @@ export const createThemeComponents = (theme: Theme) => ({
   MuiOutlinedInput: {
     styleOverrides: {
       input: {
-        "&:-webkit-autofill": {
+        '&:-webkit-autofill': {
           WebkitBoxShadow: `0 0 0 30px ${theme.palette.background.paper} inset`,
         },
       },
@@ -273,25 +269,25 @@ export const createThemeComponents = (theme: Theme) => ({
     },
     styleOverrides: {
       root: {
-        backgroundImage: "none",
+        backgroundImage: 'none',
       },
     },
   },
   MuiRadio: {
     defaultProps: {
-      color: "primary" as "primary",
+      color: 'primary' as 'primary',
     },
   },
   MuiTab: {
     styleOverrides: {
       root: {
-        borderRadius: "50rem",
-        padding: "10px 16px",
-        maxWidth: "initial !important",
-        minHeight: "initial !important",
-        minWidth: "initial !important",
-        textTransform: "none" as any,
-        "&.Mui-selected": {
+        borderRadius: '50rem',
+        padding: '10px 16px',
+        maxWidth: 'initial !important',
+        minHeight: 'initial !important',
+        minWidth: 'initial !important',
+        textTransform: 'none' as any,
+        '&.Mui-selected': {
           backgroundColor: theme.palette.background.paper,
           color: theme.palette.text.primary,
         },
@@ -302,24 +298,24 @@ export const createThemeComponents = (theme: Theme) => ({
     styleOverrides: {
       root: {
         borderBottom: `1px solid ${theme.palette.divider}`,
-        padding: "24px 16px",
+        padding: '24px 16px',
       },
       sizeSmall: {
-        padding: "12px 16px",
+        padding: '12px 16px',
       },
     },
   },
   MuiTimeline: {
     styleOverrides: {
       root: {
-        padding: "0 0 0 16px",
+        padding: '0 0 0 16px',
       },
     },
   },
   MuiTimelineContent: {
     styleOverrides: {
       root: {
-        padding: "12px 16px",
+        padding: '12px 16px',
       },
     },
   },
@@ -327,10 +323,10 @@ export const createThemeComponents = (theme: Theme) => ({
     styleOverrides: {
       root: {
         color: theme.palette.text.secondary,
-        borderRadius: "12px !important",
-        border: "none",
-        textTransform: "none" as any,
-        "&.Mui-selected": {
+        borderRadius: '12px !important',
+        border: 'none',
+        textTransform: 'none' as any,
+        '&.Mui-selected': {
           backgroundColor: theme.palette.background.paper,
           color: theme.palette.text.primary,
         },

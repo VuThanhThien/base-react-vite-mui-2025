@@ -3,9 +3,9 @@ const setup = async () => {
   if (publicUrl.origin !== window.location.origin) {
     return;
   }
-  if ("serviceWorker" in navigator && "PushManager" in window) {
+  if ('serviceWorker' in navigator && 'PushManager' in window) {
     navigator.serviceWorker
-      .register("/service-worker.js")
+      .register('/service-worker.js')
       .then((registration) => {
         registration.onupdatefound = () => {
           const installingWorker = registration.installing;
@@ -16,26 +16,26 @@ const setup = async () => {
             return;
           }
           installingWorker.onstatechange = () => {
-            if (installingWorker.state === "installed") {
+            if (installingWorker.state === 'installed') {
               if (navigator.serviceWorker.controller) {
                 console.log(
                   `New content is available and will be used when all tabs 
-                  for this page are closed. See https://bit.ly/CRA-PWA.`
+                  for this page are closed. See https://bit.ly/CRA-PWA.`,
                 );
               } else {
-                console.log("Content is cached for offline use.");
+                console.log('Content is cached for offline use.');
               }
             }
           };
         };
       })
       .catch((error) => {
-        console.error("Error during service worker registration:", error);
+        console.error('Error during service worker registration:', error);
       });
 
     const isAcceptedPermission = await Notification.requestPermission();
-    if (isAcceptedPermission === "denied") {
-      console.error("The user explicitly denied the permission request.");
+    if (isAcceptedPermission === 'denied') {
+      console.error('The user explicitly denied the permission request.');
       return;
     }
     const registrations = await navigator.serviceWorker.getRegistrations();

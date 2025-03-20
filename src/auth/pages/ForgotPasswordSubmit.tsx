@@ -1,13 +1,12 @@
-
-import { useFormik } from "formik";
-import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router";
-import * as Yup from "yup";
-import BoxedLayout from "../../core/components/BoxedLayout";
-import { useSnackbar } from "../../core/contexts/SnackbarProvider";
-import { useForgotPasswordSubmit } from "../hooks/useForgotPasswordSubmit";
-import LoadingButton from "@mui/lab/LoadingButton";
-import { Typography, Box, TextField, Button } from "@mui/material";
+import { useFormik } from 'formik';
+import { useTranslation } from 'react-i18next';
+import { Link, useNavigate } from 'react-router';
+import * as Yup from 'yup';
+import BoxedLayout from '../../core/components/BoxedLayout';
+import { useSnackbar } from '../../core/contexts/SnackbarProvider';
+import { useForgotPasswordSubmit } from '../hooks/useForgotPasswordSubmit';
+import LoadingButton from '@mui/lab/LoadingButton';
+import { Typography, Box, TextField, Button } from '@mui/material';
 
 const ForgotPasswordSubmit = () => {
   const navigate = useNavigate();
@@ -18,51 +17,43 @@ const ForgotPasswordSubmit = () => {
 
   const formik = useFormik({
     initialValues: {
-      code: "",
-      newPassword: "",
-      confirmPassword: "",
+      code: '',
+      newPassword: '',
+      confirmPassword: '',
     },
     validationSchema: Yup.object({
-      code: Yup.string().required(t("common.validations.required")),
-      newPassword: Yup.string().required(t("common.validations.required")),
-      confirmPassword: Yup.string().required(t("common.validations.required")),
+      code: Yup.string().required(t('common.validations.required')),
+      newPassword: Yup.string().required(t('common.validations.required')),
+      confirmPassword: Yup.string().required(t('common.validations.required')),
     }),
-    onSubmit: ({ code, newPassword }) =>
-      handleSubmitPassword(code, newPassword),
+    onSubmit: ({ code, newPassword }) => handleSubmitPassword(code, newPassword),
   });
 
   const handleSubmitPassword = async (code: string, newPassword: string) => {
     forgotPasswordSubmit({ code, newPassword })
       .then(() => {
-        snackbar.success(t("auth.forgotPasswordSubmit.notifications.success"));
+        snackbar.success(t('auth.forgotPasswordSubmit.notifications.success'));
         navigate(`/login`);
       })
       .catch(() => {
-        snackbar.error(t("common.errors.unexpected.subTitle"));
+        snackbar.error(t('common.errors.unexpected.subTitle'));
       });
   };
 
   return (
     <BoxedLayout>
-      <Typography component="h1" variant="h5">
-        {t("auth.forgotPasswordSubmit.title")}
+      <Typography component='h1' variant='h5'>
+        {t('auth.forgotPasswordSubmit.title')}
       </Typography>
-      <Typography marginTop={3}>
-        {t("auth.forgotPasswordSubmit.subTitle")}
-      </Typography>
-      <Box
-        component="form"
-        marginTop={3}
-        noValidate
-        onSubmit={formik.handleSubmit}
-      >
+      <Typography marginTop={3}>{t('auth.forgotPasswordSubmit.subTitle')}</Typography>
+      <Box component='form' marginTop={3} noValidate onSubmit={formik.handleSubmit}>
         <TextField
-          margin="normal"
+          margin='normal'
           required
           fullWidth
-          id="code"
-          label={t("auth.forgotPasswordSubmit.form.code.label")}
-          name="code"
+          id='code'
+          label={t('auth.forgotPasswordSubmit.form.code.label')}
+          name='code'
           autoFocus
           disabled={isLoading}
           value={formik.values.code}
@@ -71,59 +62,46 @@ const ForgotPasswordSubmit = () => {
           helperText={formik.touched.code && formik.errors.code}
         />
         <TextField
-          margin="normal"
+          margin='normal'
           required
           fullWidth
-          name="newPassword"
-          label={t("auth.forgotPasswordSubmit.form.newPassword.label")}
-          type="password"
-          id="newPassword"
+          name='newPassword'
+          label={t('auth.forgotPasswordSubmit.form.newPassword.label')}
+          type='password'
+          id='newPassword'
           disabled={isLoading}
           value={formik.values.newPassword}
           onChange={formik.handleChange}
-          error={
-            formik.touched.newPassword && Boolean(formik.errors.newPassword)
-          }
+          error={formik.touched.newPassword && Boolean(formik.errors.newPassword)}
           helperText={formik.touched.newPassword && formik.errors.newPassword}
         />
         <TextField
-          margin="normal"
+          margin='normal'
           required
           fullWidth
-          name="confirmPassword"
-          label={t("auth.forgotPasswordSubmit.form.confirmPassword.label")}
-          type="password"
-          id="confirmPassword"
+          name='confirmPassword'
+          label={t('auth.forgotPasswordSubmit.form.confirmPassword.label')}
+          type='password'
+          id='confirmPassword'
           disabled={isLoading}
           value={formik.values.confirmPassword}
           onChange={formik.handleChange}
-          error={
-            formik.touched.confirmPassword &&
-            Boolean(formik.errors.confirmPassword)
-          }
-          helperText={
-            formik.touched.confirmPassword && formik.errors.confirmPassword
-          }
+          error={formik.touched.confirmPassword && Boolean(formik.errors.confirmPassword)}
+          helperText={formik.touched.confirmPassword && formik.errors.confirmPassword}
         />
         <LoadingButton
-          type="submit"
+          type='submit'
           fullWidth
-          variant="contained"
-          color="primary"
+          variant='contained'
+          color='primary'
           disabled={isLoading}
           loading={isLoading}
           sx={{ mt: 2 }}
         >
-          {t("auth.forgotPasswordSubmit.form.action")}
+          {t('auth.forgotPasswordSubmit.form.action')}
         </LoadingButton>
-        <Button
-          component={Link}
-          to={`/login`}
-          color="primary"
-          fullWidth
-          sx={{ mt: 2 }}
-        >
-          {t("auth.forgotPasswordSubmit.form.back")}
+        <Button component={Link} to={`/login`} color='primary' fullWidth sx={{ mt: 2 }}>
+          {t('auth.forgotPasswordSubmit.form.back')}
         </Button>
       </Box>
     </BoxedLayout>

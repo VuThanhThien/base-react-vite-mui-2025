@@ -1,9 +1,9 @@
-import React, { createContext, useContext } from "react";
-import { useLocalStorage } from "../../core/hooks/useLocalStorage";
-import { useLogin } from "../hooks/useLogin";
-import { useLogout } from "../hooks/useLogout";
-import { useUserInfo } from "../hooks/useUserInfo";
-import { UserInfo } from "../types/userInfo";
+import React, { createContext, useContext } from 'react';
+import { useLocalStorage } from '../../core/hooks/useLocalStorage';
+import { useLogin } from '../hooks/useLogin';
+import { useLogout } from '../hooks/useLogout';
+import { useUserInfo } from '../hooks/useUserInfo';
+import { UserInfo } from '../types/userInfo';
 
 interface AuthContextInterface {
   hasRole: (roles?: string[]) => {};
@@ -21,7 +21,7 @@ type AuthProviderProps = {
 };
 
 const AuthProvider = ({ children }: AuthProviderProps) => {
-  const [authKey, setAuthKey] = useLocalStorage<string>("authkey", "");
+  const [authKey, setAuthKey] = useLocalStorage<string>('authkey', '');
 
   const { isLoggingIn, login } = useLogin();
   const { isLoggingOut, logout } = useLogout();
@@ -51,7 +51,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
   const handleLogout = async () => {
     return logout()
       .then((data) => {
-        setAuthKey("");
+        setAuthKey('');
         return data;
       })
       .catch((err) => {

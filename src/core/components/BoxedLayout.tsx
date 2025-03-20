@@ -1,9 +1,8 @@
-
-import React, { useState } from "react";
-import Logo from "./Logo";
-import SettingsDrawer from "./SettingsDrawer";
-import { AppBar, Box, Container, GlobalStyles, IconButton, Toolbar, useTheme } from "@mui/material";
-import SettingsIcon from "@mui/icons-material/Settings";
+import React, { useState } from 'react';
+import Logo from './Logo';
+import SettingsDrawer from './SettingsDrawer';
+import { AppBar, Box, Container, GlobalStyles, IconButton, Toolbar, useTheme } from '@mui/material';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 type BoxedLayoutProps = {
   children: React.ReactNode;
@@ -19,36 +18,27 @@ const BoxedLayout = ({ children }: BoxedLayoutProps) => {
 
   return (
     <React.Fragment>
-      <GlobalStyles
-        styles={{ body: { backgroundColor: theme.palette.background.paper } }}
-      />
-      <AppBar color="transparent" position="relative">
+      <GlobalStyles styles={{ body: { backgroundColor: theme.palette.background.paper } }} />
+      <AppBar color='transparent' position='relative'>
         <Toolbar>
           <Box sx={{ flexGrow: 1 }} />
-          <IconButton
-            aria-label="settings"
-            component="span"
-            onClick={handleSettingsToggle}
-          >
+          <IconButton aria-label='settings' component='span' onClick={handleSettingsToggle}>
             <SettingsIcon />
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Container component="main" maxWidth="xs" sx={{ mt: 6 }}>
+      <Container component='main' maxWidth='xs' sx={{ mt: 6 }}>
         <Box
           sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
           }}
         >
           <Logo sx={{ mb: 2 }} />
           {children}
           <Box>
-            <SettingsDrawer
-              onDrawerToggle={handleSettingsToggle}
-              open={settingsOpen}
-            />
+            <SettingsDrawer onDrawerToggle={handleSettingsToggle} open={settingsOpen} />
           </Box>
         </Box>
       </Container>

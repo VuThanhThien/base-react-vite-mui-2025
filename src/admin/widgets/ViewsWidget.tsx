@@ -1,31 +1,30 @@
-
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import { Avatar, Box, Card, CardContent, IconButton, Typography, useTheme } from "@mui/material";
-import { useTranslation } from "react-i18next";
-import { Link as RouterLink } from "react-router-dom";
-import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis } from "recharts";
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import { Avatar, Box, Card, CardContent, IconButton, Typography, useTheme } from '@mui/material';
+import { useTranslation } from 'react-i18next';
+import { Link as RouterLink } from 'react-router-dom';
+import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis } from 'recharts';
 
 const data = [
   {
-    name: "Jan",
+    name: 'Jan',
     fb: 2.5,
   },
   {
-    name: "Feb",
+    name: 'Feb',
     fb: 1.4,
   },
   {
-    name: "Mar",
+    name: 'Mar',
     fb: 6,
   },
   {
-    name: "Avr",
+    name: 'Avr',
     fb: 4,
   },
 ];
 
-const views = "6.967.431";
+const views = '6.967.431';
 
 const ViewsWidget = () => {
   const theme = useTheme();
@@ -34,19 +33,14 @@ const ViewsWidget = () => {
   return (
     <Card>
       <CardContent>
-        <Typography
-          align="center"
-          component="div"
-          marginBottom={2}
-          variant="body2"
-        >
-          {t("admin.home.views.unit")}
+        <Typography align='center' component='div' marginBottom={2} variant='body2'>
+          {t('admin.home.views.unit')}
         </Typography>
-        <Typography align="center" component="div" variant="h2">
+        <Typography align='center' component='div' variant='h2'>
           {views}
         </Typography>
         <Box sx={{ height: 224 }}>
-          <ResponsiveContainer width="100%" height="100%">
+          <ResponsiveContainer width='100%' height='100%'>
             <AreaChart
               width={500}
               height={400}
@@ -60,8 +54,8 @@ const ViewsWidget = () => {
             >
               <XAxis
                 axisLine={false}
-                dataKey="name"
-                interval="preserveStartEnd"
+                dataKey='name'
+                interval='preserveStartEnd'
                 tick={{ fill: theme.palette.text.secondary, fontSize: 12 }}
                 tickLine={false}
               />
@@ -74,8 +68,8 @@ const ViewsWidget = () => {
                 }}
               />
               <Area
-                type="monotone"
-                dataKey="fb"
+                type='monotone'
+                dataKey='fb'
                 fill={theme.palette.primary.main}
                 fillOpacity={0.3}
                 stroke={theme.palette.primary.main}
@@ -85,21 +79,17 @@ const ViewsWidget = () => {
             </AreaChart>
           </ResponsiveContainer>
         </Box>
-        <Card sx={{ bgcolor: "background.default", mt: 5 }}>
-          <CardContent sx={{ display: "flex", alignItems: "center" }}>
-            <Avatar sx={{ bgcolor: "background.paper", mr: 2 }}>
+        <Card sx={{ bgcolor: 'background.default', mt: 5 }}>
+          <CardContent sx={{ display: 'flex', alignItems: 'center' }}>
+            <Avatar sx={{ bgcolor: 'background.paper', mr: 2 }}>
               <DashboardIcon />
             </Avatar>
             <Box sx={{ flexGrow: 1 }}>
-              <Typography component="div" variant="h6">
-                {t("admin.home.views.action")}
+              <Typography component='div' variant='h6'>
+                {t('admin.home.views.action')}
               </Typography>
             </Box>
-            <IconButton
-              aria-label="Go to dashboard"
-              component={RouterLink}
-              to={`/admin/dashboard`}
-            >
+            <IconButton aria-label='Go to dashboard' component={RouterLink} to={`/admin/dashboard`}>
               <ChevronRightIcon />
             </IconButton>
           </CardContent>

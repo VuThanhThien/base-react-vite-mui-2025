@@ -1,7 +1,6 @@
-
-import { Toolbar, IconButton, Typography } from "@mui/material";
-import { useSettings } from "../../core/contexts/SettingsProvider";
-import MenuIcon from "@mui/icons-material/Menu";
+import { Toolbar, IconButton, Typography } from '@mui/material';
+import { useSettings } from '../../core/contexts/SettingsProvider';
+import MenuIcon from '@mui/icons-material/Menu';
 
 type AdminToolbarProps = {
   children?: React.ReactNode;
@@ -14,18 +13,18 @@ const AdminToolbar = ({ children, title }: AdminToolbarProps) => {
   return (
     <Toolbar sx={{ px: { xs: 3, sm: 6 } }}>
       <IconButton
-        color="inherit"
-        aria-label="open drawer"
-        edge="start"
+        color='inherit'
+        aria-label='open drawer'
+        edge='start'
         onClick={toggleDrawer}
         sx={{
-          display: { lg: "none" },
+          display: { lg: 'none' },
           marginRight: 2,
         }}
       >
         <MenuIcon />
       </IconButton>
-      <Typography variant="h2" component="h1" sx={{ flexGrow: 1 }}>
+      <Typography variant='h2' component='h1' sx={{ flexGrow: 1 }}>
         {title}
       </Typography>
       {children}

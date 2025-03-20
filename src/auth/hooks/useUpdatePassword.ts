@@ -1,14 +1,8 @@
-import axios from "axios";
-import { useMutation } from "react-query";
+import axios from 'axios';
+import { useMutation } from 'react-query';
 
-const updatePassword = async ({
-  oldPassword,
-  newPassword,
-}: {
-  oldPassword: string;
-  newPassword: string;
-}) => {
-  const { data } = await axios.put("/api/password", {
+const updatePassword = async ({ oldPassword, newPassword }: { oldPassword: string; newPassword: string }) => {
+  const { data } = await axios.put('/api/password', {
     oldPassword,
     newPassword,
   });

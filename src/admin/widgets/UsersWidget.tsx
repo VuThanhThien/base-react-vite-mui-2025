@@ -1,31 +1,42 @@
-
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import PersonIcon from "@mui/icons-material/Person";
-import { Avatar, Card, CardContent, CardHeader, IconButton, List, ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText, useTheme } from "@mui/material";
-import { useTranslation } from "react-i18next";
-import { Link as RouterLink } from "react-router-dom";
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import PersonIcon from '@mui/icons-material/Person';
+import {
+  Avatar,
+  Card,
+  CardContent,
+  CardHeader,
+  IconButton,
+  List,
+  ListItem,
+  ListItemAvatar,
+  ListItemSecondaryAction,
+  ListItemText,
+  useTheme,
+} from '@mui/material';
+import { useTranslation } from 'react-i18next';
+import { Link as RouterLink } from 'react-router-dom';
 
 const users = [
   {
-    id: "1",
-    firstName: "Rhys",
-    gender: "M",
-    lastName: "Arriaga",
-    role: "Admin",
+    id: '1',
+    firstName: 'Rhys',
+    gender: 'M',
+    lastName: 'Arriaga',
+    role: 'Admin',
   },
   {
-    id: "2",
-    firstName: "Laura",
-    gender: "F",
-    lastName: "Core",
-    role: "Member",
+    id: '2',
+    firstName: 'Laura',
+    gender: 'F',
+    lastName: 'Core',
+    role: 'Member',
   },
   {
-    id: "3",
-    firstName: "Joshua",
-    gender: "M",
-    lastName: "Jagger",
-    role: "Member",
+    id: '3',
+    firstName: 'Joshua',
+    gender: 'M',
+    lastName: 'Jagger',
+    role: 'Member',
   },
 ];
 
@@ -35,7 +46,7 @@ const UsersWidget = () => {
 
   return (
     <Card>
-      <CardHeader title={t("dashboard.users.title")} />
+      <CardHeader title={t('dashboard.users.title')} />
       <CardContent>
         <List>
           {users.map((user) => (
@@ -54,9 +65,9 @@ const UsersWidget = () => {
               />
               <ListItemSecondaryAction>
                 <IconButton
-                  aria-label="Go to user details"
+                  aria-label='Go to user details'
                   component={RouterLink}
-                  edge="end"
+                  edge='end'
                   to={`/admin/user-management`}
                 >
                   <ChevronRightIcon />

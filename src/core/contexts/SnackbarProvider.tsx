@@ -1,12 +1,6 @@
-import {
-  Alert,
-  AlertColor,
-  AlertTitle,
-  Snackbar,
-  SnackbarCloseReason,
-} from "@mui/material";
-import React, { createContext, useContext, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { Alert, AlertColor, AlertTitle, Snackbar, SnackbarCloseReason } from '@mui/material';
+import React, { createContext, useContext, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface SnackbarContextInterface {
   error: (newMessage: string) => void;
@@ -22,12 +16,12 @@ type SnackbarProviderProps = {
 const SnackbarProvider = ({ children }: SnackbarProviderProps) => {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
-  const [message, setMessage] = useState("");
-  const [title, setTitle] = useState("");
+  const [message, setMessage] = useState('');
+  const [title, setTitle] = useState('');
   const [severity, setSeverity] = useState<AlertColor | undefined>(undefined);
 
   const handleClose = (event: any, reason?: SnackbarCloseReason) => {
-    if (reason === "clickaway") {
+    if (reason === 'clickaway') {
       return;
     }
 
@@ -35,16 +29,16 @@ const SnackbarProvider = ({ children }: SnackbarProviderProps) => {
   };
 
   const error = (newMessage: string) => {
-    setTitle(t("common.snackbar.error"));
+    setTitle(t('common.snackbar.error'));
     setMessage(newMessage);
-    setSeverity("error");
+    setSeverity('error');
     setOpen(true);
   };
 
   const success = (newMessage: string) => {
-    setTitle(t("common.snackbar.success"));
+    setTitle(t('common.snackbar.success'));
     setMessage(newMessage);
-    setSeverity("success");
+    setSeverity('success');
     setOpen(true);
   };
 
@@ -54,8 +48,8 @@ const SnackbarProvider = ({ children }: SnackbarProviderProps) => {
       <Snackbar
         key={message}
         anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "right",
+          vertical: 'bottom',
+          horizontal: 'right',
         }}
         open={open}
         autoHideDuration={6000}

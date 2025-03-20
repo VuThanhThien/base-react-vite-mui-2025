@@ -9,11 +9,11 @@ import {
   ToggleButton,
   ToggleButtonGroup,
   Typography,
-} from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
-import { useTranslation } from "react-i18next";
-import { drawerWidth } from "../config/layout";
-import { useSettings } from "../contexts/SettingsProvider";
+} from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
+import { useTranslation } from 'react-i18next';
+import { drawerWidth } from '../config/layout';
+import { useSettings } from '../contexts/SettingsProvider';
 
 type SettingsDrawerProps = {
   onDrawerToggle: () => void;
@@ -21,14 +21,8 @@ type SettingsDrawerProps = {
 };
 
 const SettingsDrawer = ({ onDrawerToggle, open }: SettingsDrawerProps) => {
-  const {
-    changeCollapsed,
-    changeMode,
-    collapsed,
-    mode,
-  } = useSettings();
+  const { changeCollapsed, changeMode, collapsed, mode } = useSettings();
   const { i18n, t } = useTranslation();
-
 
   const handleLanguageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     i18n.changeLanguage((event.target as HTMLInputElement).value);
@@ -44,95 +38,57 @@ const SettingsDrawer = ({ onDrawerToggle, open }: SettingsDrawerProps) => {
 
   return (
     <Drawer
-      anchor="left"
+      anchor='left'
       open={open}
       onClose={onDrawerToggle}
       sx={{
-        "& .MuiDrawer-paper": {
+        '& .MuiDrawer-paper': {
           width: drawerWidth,
         },
       }}
-      variant="temporary"
+      variant='temporary'
     >
       <Box
         sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
           p: 2,
         }}
       >
-        <Typography variant="h5">{t("settings.drawer.title")}</Typography>
-        <IconButton color="inherit" onClick={onDrawerToggle} edge="end">
+        <Typography variant='h5'>{t('settings.drawer.title')}</Typography>
+        <IconButton color='inherit' onClick={onDrawerToggle} edge='end'>
           <CloseIcon />
         </IconButton>
       </Box>
       <Box sx={{ pl: 2, pr: 2 }}>
-        <Typography
-          gutterBottom
-          id="settings-language"
-          marginTop={3}
-          variant="h6"
-        >
-          {t("settings.drawer.language.label")}
+        <Typography gutterBottom id='settings-language' marginTop={3} variant='h6'>
+          {t('settings.drawer.language.label')}
         </Typography>
         <FormControl>
           <RadioGroup
-            aria-label="language"
-            name="language-radio-group"
+            aria-label='language'
+            name='language-radio-group'
             onChange={handleLanguageChange}
             value={i18n.language}
           >
-            <FormControlLabel
-              value="en"
-              control={<Radio />}
-              label={t("settings.drawer.language.options.en")}
-            />
-            <FormControlLabel
-              value="fr"
-              control={<Radio />}
-              label={t("settings.drawer.language.options.fr")}
-            />
+            <FormControlLabel value='en' control={<Radio />} label={t('settings.drawer.language.options.en')} />
+            <FormControlLabel value='fr' control={<Radio />} label={t('settings.drawer.language.options.fr')} />
           </RadioGroup>
         </FormControl>
-        <Typography gutterBottom id="settings-mode" marginTop={3} variant="h6">
-          {t("settings.drawer.mode.label")}
+        <Typography gutterBottom id='settings-mode' marginTop={3} variant='h6'>
+          {t('settings.drawer.mode.label')}
         </Typography>
-        <ToggleButtonGroup
-          color="primary"
-          value={mode}
-          exclusive
-          fullWidth
-          onChange={handleModeChange}
-        >
-          <ToggleButton value="light">
-            {t("settings.drawer.mode.options.light")}
-          </ToggleButton>
-          <ToggleButton value="dark">
-            {t("settings.drawer.mode.options.dark")}
-          </ToggleButton>
+        <ToggleButtonGroup color='primary' value={mode} exclusive fullWidth onChange={handleModeChange}>
+          <ToggleButton value='light'>{t('settings.drawer.mode.options.light')}</ToggleButton>
+          <ToggleButton value='dark'>{t('settings.drawer.mode.options.dark')}</ToggleButton>
         </ToggleButtonGroup>
-        <Typography
-          gutterBottom
-          id="settings-sidebar"
-          marginTop={3}
-          variant="h6"
-        >
-          {t("settings.drawer.sidebar.label")}
+        <Typography gutterBottom id='settings-sidebar' marginTop={3} variant='h6'>
+          {t('settings.drawer.sidebar.label')}
         </Typography>
-        <ToggleButtonGroup
-          color="primary"
-          value={collapsed}
-          exclusive
-          fullWidth
-          onChange={handleSidebarChange}
-        >
-          <ToggleButton value={true}>
-            {t("settings.drawer.sidebar.options.collapsed")}
-          </ToggleButton>
-          <ToggleButton value={false}>
-            {t("settings.drawer.sidebar.options.full")}
-          </ToggleButton>
+        <ToggleButtonGroup color='primary' value={collapsed} exclusive fullWidth onChange={handleSidebarChange}>
+          <ToggleButton value={true}>{t('settings.drawer.sidebar.options.collapsed')}</ToggleButton>
+          <ToggleButton value={false}>{t('settings.drawer.sidebar.options.full')}</ToggleButton>
         </ToggleButtonGroup>
       </Box>
     </Drawer>

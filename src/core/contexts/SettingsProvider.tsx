@@ -1,15 +1,9 @@
-import { CssBaseline, ThemeProvider as MuiThemeProvider } from "@mui/material";
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
-import { useLocalStorage } from "../hooks/useLocalStorage";
-import { createTheme } from "../theme";
-import { LocalizationProvider } from "@mui/x-date-pickers";
-import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFnsV3";
+import { CssBaseline, ThemeProvider as MuiThemeProvider } from '@mui/material';
+import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { useLocalStorage } from '../hooks/useLocalStorage';
+import { createTheme } from '../theme';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFnsV3';
 
 interface SettingsContextInterface {
   collapsed: boolean;
@@ -27,14 +21,14 @@ type SettingsProviderProps = {
 };
 
 const SettingsProvider = ({ children }: SettingsProviderProps) => {
-  const [collapsed, setCollapsed] = useLocalStorage("sidebarcollapsed", false);
-  const [mode, setMode] = useLocalStorage("mode", "light");
+  const [collapsed, setCollapsed] = useLocalStorage('sidebarcollapsed', false);
+  const [mode, setMode] = useLocalStorage('mode', 'light');
   const [open, setOpen] = useState(false);
 
-  const theme = useMemo(() => createTheme(mode as "dark" | "light"), [mode]);
+  const theme = useMemo(() => createTheme(mode as 'dark' | 'light'), [mode]);
 
   const changeCollapsed = (collapsed: boolean) => {
-    if (typeof collapsed === "boolean") {
+    if (typeof collapsed === 'boolean') {
       setCollapsed(collapsed);
     }
   };

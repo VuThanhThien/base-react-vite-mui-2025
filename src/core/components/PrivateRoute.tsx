@@ -1,15 +1,11 @@
-import { Navigate, Route, RouteProps } from "react-router-dom";
-import { useAuth } from "../../auth/contexts/AuthProvider";
+import { Navigate, Route, RouteProps } from 'react-router-dom';
+import { useAuth } from '../../auth/contexts/AuthProvider';
 
 type PrivateRouteProps = {
   roles?: string[];
 } & RouteProps;
 
-const PrivateRoute = ({
-  children,
-  roles,
-  ...routeProps
-}: PrivateRouteProps) => {
+const PrivateRoute = ({ children, roles, ...routeProps }: PrivateRouteProps) => {
   const { hasRole, userInfo } = useAuth();
 
   if (userInfo) {

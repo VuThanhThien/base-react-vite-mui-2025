@@ -1,20 +1,19 @@
-
-import React, { useState } from "react";
-import { useTranslation } from "react-i18next";
-import AdminAppBar from "../../admin/components/AdminAppBar";
-import AdminToolbar from "../../admin/components/AdminToolbar";
-import ConfirmDialog from "../../core/components/ConfirmDialog";
-import SelectToolbar from "../../core/components/SelectToolbar";
-import { useSnackbar } from "../../core/contexts/SnackbarProvider";
-import UserDialog from "../components/UserDialog";
-import UserTable from "../components/UserTable";
-import { useAddUser } from "../hooks/useAddUser";
-import { useDeleteUsers } from "../hooks/useDeleteUsers";
-import { useUpdateUser } from "../hooks/useUpdateUser";
-import { useUsers } from "../hooks/useUsers";
-import { User } from "../types/user";
-import { Fab } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import AdminAppBar from '../../admin/components/AdminAppBar';
+import AdminToolbar from '../../admin/components/AdminToolbar';
+import ConfirmDialog from '../../core/components/ConfirmDialog';
+import SelectToolbar from '../../core/components/SelectToolbar';
+import { useSnackbar } from '../../core/contexts/SnackbarProvider';
+import UserDialog from '../components/UserDialog';
+import UserTable from '../components/UserTable';
+import { useAddUser } from '../hooks/useAddUser';
+import { useDeleteUsers } from '../hooks/useDeleteUsers';
+import { useUpdateUser } from '../hooks/useUpdateUser';
+import { useUsers } from '../hooks/useUsers';
+import { User } from '../types/user';
+import { Fab } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
 
 const UserManagement = () => {
   const snackbar = useSnackbar();
@@ -37,27 +36,27 @@ const UserManagement = () => {
     addUser(user as User)
       .then(() => {
         snackbar.success(
-          t("userManagement.notifications.addSuccess", {
+          t('userManagement.notifications.addSuccess', {
             user: `${user.firstName} ${user.lastName}`,
-          })
+          }),
         );
         setOpenUserDialog(false);
       })
       .catch(() => {
-        snackbar.error(t("common.errors.unexpected.subTitle"));
+        snackbar.error(t('common.errors.unexpected.subTitle'));
       });
   };
 
   const handleDeleteUsers = async () => {
     deleteUsers(userDeleted)
       .then(() => {
-        snackbar.success(t("userManagement.notifications.deleteSuccess"));
+        snackbar.success(t('userManagement.notifications.deleteSuccess'));
         setSelected([]);
         setUserDeleted([]);
         setOpenConfirmDeleteDialog(false);
       })
       .catch(() => {
-        snackbar.error(t("common.errors.unexpected.subTitle"));
+        snackbar.error(t('common.errors.unexpected.subTitle'));
       });
   };
 
@@ -65,14 +64,14 @@ const UserManagement = () => {
     updateUser(user)
       .then(() => {
         snackbar.success(
-          t("userManagement.notifications.updateSuccess", {
+          t('userManagement.notifications.updateSuccess', {
             user: `${user.firstName} ${user.lastName}`,
-          })
+          }),
         );
         setOpenUserDialog(false);
       })
       .catch(() => {
-        snackbar.error(t("common.errors.unexpected.subTitle"));
+        snackbar.error(t('common.errors.unexpected.subTitle'));
       });
   };
 
@@ -107,13 +106,13 @@ const UserManagement = () => {
     <React.Fragment>
       <AdminAppBar>
         {!selected.length ? (
-          <AdminToolbar title={t("userManagement.toolbar.title")}>
+          <AdminToolbar title={t('userManagement.toolbar.title')}>
             <Fab
-              aria-label="logout"
-              color="primary"
+              aria-label='logout'
+              color='primary'
               disabled={processing}
               onClick={() => handleOpenUserDialog()}
-              size="small"
+              size='small'
             >
               <AddIcon />
             </Fab>
@@ -136,12 +135,12 @@ const UserManagement = () => {
         users={data}
       />
       <ConfirmDialog
-        description={t("userManagement.confirmations.delete")}
+        description={t('userManagement.confirmations.delete')}
         pending={processing}
         onClose={handleCloseConfirmDeleteDialog}
         onConfirm={handleDeleteUsers}
         open={openConfirmDeleteDialog}
-        title={t("common.confirmation")}
+        title={t('common.confirmation')}
       />
       {openUserDialog && (
         <UserDialog

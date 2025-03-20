@@ -1,4 +1,4 @@
-import { Box, BoxProps } from "@mui/material";
+import { Box, BoxProps } from '@mui/material';
 
 type LogoProps = {
   colored?: boolean;
@@ -6,17 +6,12 @@ type LogoProps = {
   color?: string;
 } & BoxProps;
 
-const Logo = ({
-  colored = false,
-  size = 40,
-  color = "currentColor",
-  ...boxProps
-}: LogoProps) => {
+const Logo = ({ colored = false, size = 40, color = 'currentColor', ...boxProps }: LogoProps) => {
   return (
     <Box {...boxProps} height={size} width={size}>
       <img
-        src={"assets/logo.svg"}
-        alt="Logo"
+        src={'assets/logo.svg'}
+        alt='Logo'
         style={{
           width: size,
           height: size,

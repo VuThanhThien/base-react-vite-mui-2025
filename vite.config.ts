@@ -1,13 +1,13 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
-import svgr from "vite-plugin-svgr";
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react-swc';
+import svgr from 'vite-plugin-svgr';
 import viteTsconfigPaths from 'vite-tsconfig-paths';
 import { resolve } from 'path';
 import { VitePWA } from 'vite-plugin-pwa';
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/",
+  base: '/',
   server: {
     port: 8080,
     open: true,
@@ -15,9 +15,9 @@ export default defineConfig({
   plugins: [
     react(),
     svgr({
-      include: "**/*.svg",
+      include: '**/*.svg',
       svgrOptions: {
-        exportType: "default",
+        exportType: 'default',
       },
     }),
     viteTsconfigPaths(),
@@ -37,33 +37,29 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      src: resolve(__dirname, "./src/"),
+      src: resolve(__dirname, './src/'),
     },
   },
   build: {
     rollupOptions: {
       cache: true,
       input: {
-        main: resolve(__dirname, "index.html"),
+        main: resolve(__dirname, 'index.html'),
       },
       plugins: [],
       output: {
         manualChunks(id) {
-          if (id.includes("@mui")) {
-            return "mui";
+          if (id.includes('@mui')) {
+            return 'mui';
           }
-          if (id.includes("lodash")) {
-            return "lodash";
+          if (id.includes('lodash')) {
+            return 'lodash';
           }
-          if (
-            id.includes("date-fns") ||
-            id.includes("moment") ||
-            id.includes("dayjs")
-          ) {
-            return "date-time";
+          if (id.includes('date-fns') || id.includes('moment') || id.includes('dayjs')) {
+            return 'date-time';
           }
-          if (id.includes("node_modules")) {
-            return "vendor";
+          if (id.includes('node_modules')) {
+            return 'vendor';
           }
         },
       },
