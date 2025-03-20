@@ -12,8 +12,9 @@ import { useDeleteUsers } from '../hooks/useDeleteUsers';
 import { useUpdateUser } from '../hooks/useUpdateUser';
 import { useUsers } from '../hooks/useUsers';
 import { User } from '../types/user';
-import { Fab } from '@mui/material';
+import { Box, Fab } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
+import Container from '@material-ui/core/Container';
 
 const UserManagement = () => {
   const snackbar = useSnackbar();
@@ -126,32 +127,34 @@ const UserManagement = () => {
           />
         )}
       </AdminAppBar>
-      <UserTable
-        processing={processing}
-        onDelete={handleOpenConfirmDeleteDialog}
-        onEdit={handleOpenUserDialog}
-        onSelectedChange={handleSelectedChange}
-        selected={selected}
-        users={data}
-      />
-      <ConfirmDialog
-        description={t('userManagement.confirmations.delete')}
-        pending={processing}
-        onClose={handleCloseConfirmDeleteDialog}
-        onConfirm={handleDeleteUsers}
-        open={openConfirmDeleteDialog}
-        title={t('common.confirmation')}
-      />
-      {openUserDialog && (
-        <UserDialog
-          onAdd={handleAddUser}
-          onClose={handleCloseUserDialog}
-          onUpdate={handleUpdateUser}
-          open={openUserDialog}
+      <Box className='container'>
+        <UserTable
           processing={processing}
-          user={userUpdated}
+          onDelete={handleOpenConfirmDeleteDialog}
+          onEdit={handleOpenUserDialog}
+          onSelectedChange={handleSelectedChange}
+          selected={selected}
+          users={data}
         />
-      )}
+        <ConfirmDialog
+          description={t('userManagement.confirmations.delete')}
+          pending={processing}
+          onClose={handleCloseConfirmDeleteDialog}
+          onConfirm={handleDeleteUsers}
+          open={openConfirmDeleteDialog}
+          title={t('common.confirmation')}
+        />
+        {openUserDialog && (
+          <UserDialog
+            onAdd={handleAddUser}
+            onClose={handleCloseUserDialog}
+            onUpdate={handleUpdateUser}
+            open={openUserDialog}
+            processing={processing}
+            user={userUpdated}
+          />
+        )}
+      </Box>
     </React.Fragment>
   );
 };
