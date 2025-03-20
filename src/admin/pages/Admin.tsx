@@ -1,10 +1,11 @@
-import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 import QueryWrapper from "../../core/components/QueryWrapper";
 import SettingsDrawer from "../../core/components/SettingsDrawer";
 import { useSettings } from "../../core/contexts/SettingsProvider";
 import AdminDrawer from "../components/AdminDrawer";
 import { Box, Toolbar } from "@mui/material";
+import { useAuth } from "auth/contexts/AuthProvider";
 
 const AdminLayout = () => {
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -14,6 +15,18 @@ const AdminLayout = () => {
   const handleSettingsToggle = () => {
     setSettingsOpen(!settingsOpen);
   };
+  const { hasRole, userInfo } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!userInfo) {
+      navigate(`/login`);
+    }
+    //TODO: enhance RBAC later
+    if (!!userInfo && !hasRole(["Admin"])) {
+      navigate(`/403`);
+    }
+  }, []);
 
   return (
     <Box sx={{ display: "flex" }}>
